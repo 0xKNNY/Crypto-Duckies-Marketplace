@@ -99,7 +99,7 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
     topOffer: collection?.topBid?.price?.amount?.decimal,
     topOfferCurrency: collection?.topBid?.price?.currency,
     floor: collection?.floorAsk?.price?.amount?.native,
-    allTime: collection?.volume?.allTime,
+    allTime: collection?.volume?.allTime, 
     volumeChange: collection?.volumeChange?.['1day'],
     floorChange: collection?.floorSaleChange?.['1day'],
   }
@@ -194,8 +194,6 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
     <>
       <HeroBackground banner={header.banner}>
         <div className="w-full flex flex-row gap-6">
-        <div><img src="/KNNY.svg" className="icon"></img></div>
-
         <div className="z-10 flex w-full flex-col gap-6">
           {header.description && (
             <>

@@ -404,3 +404,13 @@ background: #000000;
   min-width: 50px;
   max-width: 50px;
 }
+
+.art-height {
+  max-height: 80vh;
+}
+
+.art-width {
+  max-width: 60vh;
+  margin-left: auto;
+  margin-right: auto;
+}

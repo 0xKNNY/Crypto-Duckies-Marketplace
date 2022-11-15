@@ -22,7 +22,7 @@ const TokenMedia: FC<Props> = ({ token }) => {
       {token?.media === null ? (
         <img
           alt="Token Image"
-          className="w-full border rounded-2xl"
+          className="w-full border art-height art-width rounded-2xl"
           src={token?.image}
         />
       ) : (
@@ -48,7 +48,7 @@ const Media: FC<{
   if (extension === 'mp4') {
     return (
       <video
-        className="mb-4 w-full border"
+        className="mb-4 w-full art-height border"
         poster={tokenImage}
         controls
         autoPlay
@@ -69,7 +69,7 @@ const Media: FC<{
       <div>
         <img
           alt="Token Audio"
-          className="mb-4 w-[533px] rounded-2xl"
+          className="mb-4 w-[533px] art-height rounded-2xl"
           src={tokenImage}
         />
         <audio className="mb-4 w-full" controls src={media}>
@@ -83,7 +83,7 @@ const Media: FC<{
   // 3D
   if (extension === 'gltf' || extension === 'glb') {
     return (
-      <div className="mb-4 w-full">
+      <div className="mb-4 art-height w-full">
       <model-viewer
         src={media}
         ar
@@ -108,7 +108,7 @@ const Media: FC<{
     return (
       <img
         alt="Token Image"
-        className="mb-4 m-4 w-full border"
+        className="mb-4 m-4 w-full art-height border"
         src={media}
       />
     )
@@ -122,7 +122,7 @@ const Media: FC<{
   ) {
     return (
       <iframe
-        className="mb-6 aspect-square h-full w-full rounded-2xl"
+        className="mb-6 aspect-square h-full w-full art-height rounded-2xl"
         height="3000"
         width="3000"
         src={media}
@@ -134,7 +134,7 @@ const Media: FC<{
   return (
     <img
       alt="Token Image"
-      className="w-full rounded-2xl"
+      className="w-full art-height rounded-2xl"
       src={tokenImage}
     />
   )
