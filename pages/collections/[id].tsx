@@ -154,13 +154,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           </Tabs.List>
           <Tabs.Content value="items" asChild>
             <div ref={scrollRef} className="relative flex flex-row">
-              <Sidebar
-                attributes={attributes.data}
-                refreshData={() => {
-                  tokens.setSize(1)
-                }}
-                scrollToTop={scrollToTop}
-              />
+              
               <div className="mx-6 mt-4 w-full">
                 <div className="mb-4 hidden items-center justify-between md:flex">
                   <div className="flex items-center gap-6 font-semibold">

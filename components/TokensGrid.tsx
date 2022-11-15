@@ -35,16 +35,14 @@ const TokensGrid: FC<Props> = ({ tokens, viewRef, collectionImage, isLoading }) 
       <Masonry
         key="tokensGridMasonry"
         breakpointCols={{
-          default: 6,
-          1900: 5,
-          1536: 4,
-          1280: 3,
+          default: 3,
+          1280: 2,
           1024: 2,
-          768: 2,
-          640: 2,
+          768: 1,
+          640: 1,
           500: 1,
         }}
-        className="masonry-grid"
+        className="masonry-grid p-2 "
         columnClassName="masonry-grid_column"
       >
         {tokens.isFetchingInitialData || isLoading

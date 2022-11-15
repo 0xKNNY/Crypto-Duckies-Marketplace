@@ -10,7 +10,7 @@ type Props = {
 
 const TokenMedia: FC<Props> = ({ token }) => {
   return (
-    <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-2">
+    <div className="col-span-full m-4 md:col-span-4 lg:col-span-5 lg:col-start-2">
       <Script
         type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
@@ -22,13 +22,13 @@ const TokenMedia: FC<Props> = ({ token }) => {
       {token?.media === null ? (
         <img
           alt="Token Image"
-          className="w-full rounded-2xl"
-          src={optimizeImage(token?.image, 533)}
+          className="w-full border rounded-2xl"
+          src={token?.image}
         />
       ) : (
         <Media
           media={token?.media as string}
-          tokenImage={optimizeImage(token?.image, 533)}
+          tokenImage={optimizeImage(token?.image, 3000)}
         />
       )}
     </div>
@@ -48,7 +48,7 @@ const Media: FC<{
   if (extension === 'mp4') {
     return (
       <video
-        className="mb-4 w-full rounded"
+        className="mb-4 w-full border"
         poster={tokenImage}
         controls
         autoPlay
@@ -83,6 +83,7 @@ const Media: FC<{
   // 3D
   if (extension === 'gltf' || extension === 'glb') {
     return (
+      <div className="mb-4 w-full">
       <model-viewer
         src={media}
         ar
@@ -93,6 +94,7 @@ const Media: FC<{
         camera-controls
         enable-pan
       ></model-viewer>
+      </div>
     )
   }
 
@@ -106,8 +108,8 @@ const Media: FC<{
     return (
       <img
         alt="Token Image"
-        className="w-full rounded-2xl"
-        src={optimizeImage(media, 533)}
+        className="mb-4 m-4 w-full border"
+        src={media}
       />
     )
   }
@@ -121,8 +123,8 @@ const Media: FC<{
     return (
       <iframe
         className="mb-6 aspect-square h-full w-full rounded-2xl"
-        height="533"
-        width="533"
+        height="3000"
+        width="3000"
         src={media}
         sandbox="allow-scripts"
       ></iframe>
@@ -133,7 +135,7 @@ const Media: FC<{
     <img
       alt="Token Image"
       className="w-full rounded-2xl"
-      src={optimizeImage(tokenImage, 533)}
+      src={tokenImage}
     />
   )
 }

@@ -76,7 +76,7 @@ const TokenCard: FC<Props> = ({
   return (
     <div
       key={`${token?.token?.contract}${token?.token?.tokenId}`}
-      className="group relative mb-6 grid transform-gpu self-start overflow-hidden rounded-[16px] border border-[#D4D4D4] bg-white transition ease-in hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-lg hover:ease-out dark:border-0 dark:bg-neutral-800 dark:ring-1 dark:ring-neutral-600"
+      className="group relative mb-6 grid transform-gpu self-start overflow-hidden rounded-[10px] border border-[grey] transition ease-in hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-lg hover:ease-out"
     >
       {isInCart ? (
         <div className="absolute top-4 right-4 z-10 flex h-[34px] w-[34px] animate-slide-down items-center justify-center overflow-hidden rounded-full bg-primary-700">
@@ -128,14 +128,14 @@ const TokenCard: FC<Props> = ({
         </a>
       </Link>
       <div
-        className={`absolute bottom-[0px] w-full bg-white transition-all  dark:bg-neutral-800 md:-bottom-[41px] ${
+        className={`absolute bottom-[0px] w-full transition-all  dark:bg-[#202020] md:-bottom-[41px] ${
           !isOwner && !token?.market?.floorAsk?.price
             ? ''
             : 'group-hover:bottom-[0px]'
         }`}
       >
         <div
-          className="reservoir-subtitle mb-3 overflow-hidden truncate px-4 pt-4 dark:text-white lg:pt-3"
+          className="reservoir-h6 mb-3 overflow-hidden truncate px-4 pt-4 dark:text-white lg:pt-3"
           title={token?.token?.name || token?.token?.tokenId}
         >
           {token?.token?.name || `#${token?.token?.tokenId}`}
@@ -268,7 +268,7 @@ const TokenCard: FC<Props> = ({
                       }
                     }
                   }}
-                  className="reservoir-subtitle flex h-[40px] items-center justify-center border-t border-neutral-300 disabled:cursor-not-allowed dark:border-neutral-600"
+                  className="reservoir-subtitle text-white flex h-[40px] items-center justify-center border-t border-neutral-300 disabled:cursor-not-allowed dark:border-neutral-600"
                 >
                   Add to Cart
                 </button>

@@ -45,9 +45,12 @@ const ConnectWallet: FC = () => {
 
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger className="btn-primary-outline ml-auto rounded-full border-transparent p-0 normal-case dark:border-neutral-600 dark:bg-neutral-900 dark:ring-primary-900 dark:focus:ring-4">
-        <Avatar address={account.address} avatar={ensAvatar} size={40} />
-      </DropdownMenu.Trigger>
+      <DropdownMenu.Trigger className="ml-auto rounded-full green border-transparent p-0 normal-case">
+      ✓ {ensName ? (
+              <span>{truncateEns(ensName)}</span>
+            ) : (
+              <span>{truncateAddress(account.address || '')}</span>
+            )}      </DropdownMenu.Trigger>
 
       <DropdownMenu.Content align="end" sideOffset={6}>
         <div
@@ -55,7 +58,7 @@ const ConnectWallet: FC = () => {
             DISABLE_POWERED_BY_RESERVOIR ? 'rounded' : 'rounded-t'
           }`}
         >
-          <div className="group flex w-full items-center justify-between rounded px-4 py-3 outline-none transition">
+          <div className="group flex w-full items-center justify-between green rounded px-4 py-3 outline-none transition">
             {ensName ? (
               <span>{truncateEns(ensName)}</span>
             ) : (
@@ -82,7 +85,7 @@ const ConnectWallet: FC = () => {
                 dispatch({ type: 'CONNECT_WALLET', payload: false })
                 disconnect()
               }}
-              className="group flex w-full cursor-pointer items-center justify-between gap-3 rounded px-4 py-3 outline-none transition hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+              className="group flex disconnect-button w-full cursor-pointer items-center justify-between gap-3 rounded px-4 py-3 outline-none transition text hover:bg-neutral-100 focus:bg-neutral-100"
             >
               <span>Disconnect</span>
               <HiOutlineLogout className="h-6 w-7" />

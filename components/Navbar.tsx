@@ -11,6 +11,7 @@ import SearchMenu from './SearchMenu'
 import { useMediaQuery } from '@react-hookz/web'
 import useMounted from 'hooks/useMounted'
 import ListItemButton from './navbar/ListItemButton'
+import Link from 'next/link'
 
 const SearchCollections = dynamic(() => import('./SearchCollections'))
 const CommunityDropdown = dynamic(() => import('./CommunityDropdown'))
@@ -125,8 +126,8 @@ const Navbar: FC = () => {
   }
 
   return (
-    <nav className="sticky top-0 z-[1000] col-span-full flex items-center justify-between gap-2 border-b border-[#D4D4D4] bg-white px-6 py-4 dark:border-neutral-600 dark:bg-black md:gap-3 md:py-6 md:px-16">
-      <NavbarLogo className="z-10 max-w-[300px]" />
+    <nav className="sticky top-0 z-[1000] grey col-span-full bg-black flex items-center justify-between gap-2 border-b px-2 py-1 md:gap-3 md:py-1 md:px-4">
+      <Link target="" href="/"><p>store.knny.io</p></Link>
       {showLinks && (
         <div className="z-10 ml-12 hidden items-center gap-11 lg:flex">
           {externalLinks.map(({ name, url }) => (
@@ -135,7 +136,7 @@ const Navbar: FC = () => {
               href={url}
               rel="noopener noreferrer"
               target="_blank"
-              className="text-dark reservoir-h6 hover:text-[#1F2937] dark:text-white"
+              className=" reservoir-h6 hover:text-[#1F2937] "
             >
               {name}
             </a>
@@ -154,7 +155,7 @@ const Navbar: FC = () => {
           <HamburgerMenu externalLinks={externalLinks} />
         </div>
       ) : (
-        <div className="z-10 ml-auto shrink-0 gap-2 md:flex xl:gap-4">
+        <div className="z-10 ml-auto shrink-0 md:flex xl:gap-4">
           {!hasCommunityDropdown && !showDesktopSearch && (
             <div className="ml-auto flex">
               {filterComponent && filterComponent}

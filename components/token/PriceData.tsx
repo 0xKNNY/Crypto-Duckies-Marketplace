@@ -143,18 +143,18 @@ const PriceData: FC<Props> = ({ details, collection, isOwner }) => {
       : false
 
   return (
-    <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-2">
-      <article className="col-span-full rounded-2xl border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black">
-        <div className="grid grid-cols-2 gap-6">
+    <div className="col-span-full md:col-span-4 m-4 lg:col-span-5 lg:col-start-2">
+      <article className="col-span-full rounded-2xl border bg-white p-4 dark:border-grey dark:bg-black">
+        <div className="grid grid-cols-2 gap-4 text">
           <Price
-            title="List Price"
+            title="Buy Now"
             source={
               sourceName && (
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
                   href={sourceRedirect}
-                  className="reservoir-body flex items-center gap-2 dark:text-white"
+                  className="flex items-center gap-2"
                 >
                   on {sourceName}
                   <img className="h-6 w-6" src={sourceLogo} alt="Source Logo" />

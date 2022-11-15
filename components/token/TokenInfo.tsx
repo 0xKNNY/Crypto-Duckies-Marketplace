@@ -7,6 +7,7 @@ import { setToast } from './setToast'
 
 const PROXY_API_BASE = process.env.NEXT_PUBLIC_PROXY_API_BASE
 
+
 type Props = {
   token?: TokenDetails
 }
@@ -69,38 +70,76 @@ const TokenInfo: FC<Props> = ({ token }) => {
   }
 
   return (
-    <article className="col-span-full rounded-2xl border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black">
+    <article className="col-span-full background text p-6">
       <div className="mb-4 flex items-center justify-between">
-        <div className="reservoir-h5 font-headings dark:text-white">
-          Token Info
-        </div>
-        <div className="flex items-center gap-2">
+            <div className="reservoir-h6 text">NFT Details</div>
+          </div>
+
+{/* MANIFOLD GALLERY LINK */}
+
+<div className="mb-4 flex items-center reservoir-subtitle text justify-between">
+          <div>
           <a
-            className="reservoir-h6 font-headings"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`https://looksrare.org/collections/${token?.contract}/${token?.tokenId}`}
-          >
-            <img
-              src="/icons/LooksRare.svg"
-              alt="LooksRare Icon"
-              className="h-6 w-6"
-            />
-          </a>
+                className="reservoir-subtitle flex items-center gap-2 text"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://gallery.manifold.xyz/${token?.contract}/${token?.tokenId}`}
+              >
+              View on Manifold Gallery 🖼
+              </a>
+              </div>
+              </div>
+
+{/* OPENSEA LINK */}
+
+<div className="mb-4 flex items-center reservoir-subtitle text justify-between">
+          <div>
           <a
-            className="reservoir-h6 font-headings"
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`https://opensea.io/assets/${token?.contract}/${token?.tokenId}`}
-          >
-            <img
-              src="/icons/OpenSea.svg"
-              alt="OpenSea Icon"
-              className="h-6 w-6"
-            />
-          </a>
-        </div>
-      </div>
+                className="reservoir-subtitle flex items-center gap-2 text"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://opensea.io/assets/${token?.contract}/${token?.tokenId}`}
+              >
+              View on OpenSea 🌊
+              </a>
+              </div>
+              </div>
+
+          {/* LOOKSRARE LINK */}
+
+          <div className="mb-4 flex items-center reservoir-subtitle text justify-between">
+          <div>
+          <a
+                className="reservoir-subtitle flex items-center gap-2 text"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://looksrare.org/collections/${token?.contract}/${token?.tokenId}`}
+              >
+               View on LooksRare 💎
+              </a>
+              </div>
+              </div>
+
+{/* VIEW ON ETHERSSCAN LINK */}
+
+{token?.contract && (
+  <div className="mb-4 flex items-center justify-between">
+    <div>
+      <a
+        className="reservoir-subtitle flex items-center gap-2 text"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={`https://etherscan.io/address/${token?.contract}`}
+      >
+        View on Etherscan 🔥
+      </a>
+    </div>
+  </div>
+)}
+
+
+      {/* CONTRACT ADDRESS */}
+
       {token?.contract && (
         <div className="mb-4 flex items-center justify-between">
           <div className="reservoir-subtitle dark:text-white">
@@ -119,18 +158,26 @@ const TokenInfo: FC<Props> = ({ token }) => {
           </div>
         </div>
       )}
+      {/* TOKEN ID */}
+
       <div className="mb-4 flex items-center justify-between">
         <div className="reservoir-subtitle dark:text-white">Token ID</div>
         <div className="reservoir-h6 max-w-[80px] truncate font-headings dark:text-white">
           {token?.tokenId}
         </div>
       </div>
+
+      {/* TOKEN STANDARD*/}
+
       <div className="mb-4 flex items-center justify-between">
         <div className="reservoir-subtitle dark:text-white">Token Standard</div>
         <div className="reservoir-h6 font-headings uppercase dark:text-white">
           {token?.kind}
         </div>
       </div>
+
+      {/* METADATA REFRESH BUTTON */}
+
       <div className="flex items-center justify-between">
         <div className="reservoir-subtitle dark:text-white">
           Metadata Refresh
@@ -149,6 +196,9 @@ const TokenInfo: FC<Props> = ({ token }) => {
           />
         </button>
       </div>
+
+      {/* END OF ARTICLE */}
+
     </article>
   )
 }

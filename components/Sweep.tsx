@@ -239,7 +239,7 @@ const Sweep: FC<Props> = ({ tokens, collection, mutate, setToast }) => {
         }
         className="btn-primary-fill gap-2 dark:ring-primary-900 dark:focus:ring-4"
       >
-        <FaBroom className="text-white" />
+        <FaBroom className="text-black" />
         Sweep
       </Dialog.Trigger>
 

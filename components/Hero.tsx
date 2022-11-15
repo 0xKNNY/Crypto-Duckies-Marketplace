@@ -193,19 +193,10 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
   return (
     <>
       <HeroBackground banner={header.banner}>
-        <div className="z-10 flex w-full flex-col items-center gap-6">
-          <img
-            className={`h-20 w-20 rounded-full ${
-              header.image ? 'visible' : 'hidden'
-            }`}
-            alt={`${header.name} Logo`}
-            src={header.image}
-          />
-          <h1 className="reservoir-h4 text-center text-black dark:text-white">
-            {header.name}
-          </h1>
-          <HeroSocialLinks collection={collection} refreshCollection={refreshCollection}/>
-          <HeroStats stats={statsObj} />
+        <div className="w-full flex flex-row gap-6">
+        <div><img src="/KNNY.svg" className="icon"></img></div>
+
+        <div className="z-10 flex w-full flex-col gap-6">
           {header.description && (
             <>
               <div
@@ -214,7 +205,7 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
               >
                 <p
                   ref={descriptionRef}
-                  className="text-center text-sm text-[#262626] transition-[width] duration-300 ease-in-out dark:text-white"
+                  className=" text-sm grey transition-[width] duration-300 ease-in-out"
                 >
                   <ReactMarkdown
                     className="markdown-support"
@@ -242,14 +233,14 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
               )}
             </>
           )}
-          <div className="flex w-full flex-col justify-center gap-4 md:flex-row">
+          <div className="flex w-full flex-col gap-4 md:flex-row">
             {isSupported && (
               <BidModal
                 collectionId={collection?.id}
                 trigger={
                   <button
                     disabled={isInTheWrongNetwork}
-                    className="btn-primary-outline min-w-[222px] whitespace-nowrap border border-[#D4D4D4] bg-white text-black dark:border-[#525252] dark:bg-black dark:text-white dark:ring-[#525252] dark:focus:ring-4"
+                    className="btn-primary-fill min-w-[222px] whitespace-nowrap border border-[#D4D4D4] dark:border-[#525252]"
                   >
                     {isAttributeModal
                       ? 'Make an Attribute Offer'
@@ -318,6 +309,7 @@ const Hero: FC<Props> = ({ fallback, collectionId }) => {
               />
             )}
           </div>
+        </div>
         </div>
       </HeroBackground>
     </>

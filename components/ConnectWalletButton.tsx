@@ -32,9 +32,8 @@ const ConnectWalletButton: FC<Props> = ({ className, children }) => {
                 <button
                   onClick={openConnectModal}
                   type="button"
-                  className={`btn-primary-fill h-full border-none px-3 dark:border-neutral-600 dark:text-white dark:ring-primary-900 dark:focus:ring-4 ${className}`}
-                >
-                  {children}
+                  className={` py-2 grey`}
+                > [ Connect Wallet ]
                 </button>
               )
             })()}

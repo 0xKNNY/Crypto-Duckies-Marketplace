@@ -109,7 +109,7 @@ const HamburgerMenu: FC<Props> = ({ externalLinks }) => {
             </button>
           </>
         ) : (
-          <div className="mt-12 px-4">
+          <div className="px-4">
             <ConnectWalletButton className="w-full">
               <span>Connect Wallet</span>
             </ConnectWalletButton>

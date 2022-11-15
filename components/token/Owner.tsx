@@ -4,6 +4,7 @@ import { FC } from 'react'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { FiAlertCircle } from 'react-icons/fi'
 import { useTokens } from '@reservoir0x/reservoir-kit-ui'
+import CollectionInfo from './CollectionInfo'
 
 type Props = {
   details: ReturnType<typeof useTokens>['data'][0]
@@ -19,8 +20,8 @@ const Owner: FC<Props> = ({ details, bannedOnOpenSea }) => {
       : token?.owner
 
   return (
-    <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-2">
-      <article className="col-span-full rounded-2xl border border-gray-300 bg-white p-6 dark:border-neutral-600 dark:bg-black">
+    <div className="col-span-full m-4 md:col-span-4 lg:col-span-5 lg:col-start-2">
+      <article className="col-span-full rounded-2xl bg-white dark:bg-black">
         <div className="reservoir-h3 mb-6 flex items-center gap-4 overflow-hidden font-headings dark:text-white">
           <div>{token?.name || `#${token?.tokenId}`}</div>
           {bannedOnOpenSea && (
@@ -42,7 +43,7 @@ const Owner: FC<Props> = ({ details, bannedOnOpenSea }) => {
         </div>
 
         <div className="reservoir-h6 mb-2 font-headings dark:text-white">
-          Owner
+          
         </div>
         {owner && (
           <Link href={`/address/${owner}`}>
@@ -52,6 +53,7 @@ const Owner: FC<Props> = ({ details, bannedOnOpenSea }) => {
           </Link>
         )}
       </article>
+      <br></br>
     </div>
   )
 }
