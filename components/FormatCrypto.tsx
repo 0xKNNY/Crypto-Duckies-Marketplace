@@ -24,8 +24,13 @@ const FormatCrypto: FC<Props> = ({
       amount={amount}
       maximumFractionDigits={maximumFractionDigits}
     >
+      
       {address && (
-        null
+        <img
+          src={logoUrl}
+          alt="Currency Logo"
+          style={{ width: `${logoWidth}px` }}
+        />
       )}
     </FormatCurrency>
   )

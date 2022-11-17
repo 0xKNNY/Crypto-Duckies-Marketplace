@@ -159,7 +159,7 @@ background: rgb(255, 250, 247);
 
 .background
 {
-background: #000000;
+background: #090c0b;
 }
 
 .border
@@ -413,4 +413,8 @@ background: #000000;
   max-width: 60vh;
   margin-left: auto;
   margin-right: auto;
+}
+
+.glow {
+  text-shadow:0 0 20px #00ff916d, 0 0 60px #00ff916f, 0 0 7px #00ff914a;
 }

@@ -22,10 +22,10 @@ const Listings: FC<Props> = ({ token }) => {
   if (!listings || listings.length === 0) return null
 
   return (
-    <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-2">
+    <div className="col-span-full m-4 md:col-span-4 lg:col-span-5 lg:col-start-2">
       <Card>
         <div className="reservoir-h5 mb-4 font-headings dark:bg-black dark:text-white ">
-          Listings
+          ERC-1155 Listings
         </div>
         <div className="max-h-96 overflow-auto rounded-2xl">
           <table className="min-w-full table-auto overflow-y-auto">

@@ -128,9 +128,9 @@ const SearchCollections: FC<Props> = ({
             className={
               isMobile
                 ? 'ml-[72px] h-[72px] w-full outline-none dark:bg-black'
-                : `reservoir-label-l input-primary-outline w-full pl-9 dark:border-neutral-600 dark:bg-neutral-800 dark:text-white dark:ring-primary-900 dark:placeholder:text-neutral-400  dark:focus:ring-4 lg:w-[447px]`
+                : `reservoir-label-l green w-full pl-9 p-1 grey bg-black outline outline-[transparent] focus:outline-primary-900 dark:placeholder:text-neutral-400 lg:w-[447px]`
             }
-            placeholder="Search for a collection"
+            placeholder="[ Search for a collection ]"
             {...getInputProps()}
           />
           {typeof inputValue === 'string' && inputValue !== '' && (

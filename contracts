@@ -1,0 +1,52 @@
+curl --request POST \
+     --url https://api.reservoir.tools/collections-sets/v1 \
+     --header 'accept: */*' \
+     --header 'content-type: application/json' \
+     --header 'x-api-key: demo-api-key' \
+     --data '
+{
+     "collections": [
+          
+          "0x6E7DF7deDa9374310363dA4ACAf4B4a0b4bCfdCE",
+          "0x32d813d74836f2054a8820560A8b5604A2697360",
+          "0x0f4eACAC8f1EEfe7d0F6d4F21E40BcCfA2e447d5",
+          "0x902d3511A7440519b444E0B54C0addD54a15E030",
+          "0x94A516EE79e060674bD8ABa12ae091C0c4425445",
+          "0x927015c76705DE3cbaDAF919f6aa04423E17d5CF",
+          "0x6583AFE5f8edA8178877FB819b63C6F605c4F692",
+          "0x7B9232E7A35F405e7bC4515e9516cD952014CBf1",
+          "0x822F1418072e15e1d1f07533138b35A72a8a0f55",
+          "0x58479aC4874A2047A67B33dB778A5DaBBdfa8aF7",
+          "0x32CF8a3A307b3D663bC568bD0eB4713BfF5dD3e7",
+          "0x18307440B66C15ddea2A1455a9009a64E0891998",
+          "0xF544BF28CA2a998619BC37e2d62828a55C444D5B"
+     ]
+}
+'
+
+# 0x6E7DF7deDa9374310363dA4ACAf4B4a0b4bCfdCE KNNY
+# 0x32d813d74836f2054a8820560A8b5604A2697360 Jake the degen
+# 0x0f4eACAC8f1EEfe7d0F6d4F21E40BcCfA2e447d5 originalplan sage.art
+# 0x902d3511A7440519b444E0B54C0addD54a15E030 al crego visual massage
+# 0x94A516EE79e060674bD8ABa12ae091C0c4425445 jrdsctt pndtns
+# 0x927015c76705DE3cbaDAF919f6aa04423E17d5CF morpho
+# 0x6583AFE5f8edA8178877FB819b63C6F605c4F692 David Lisser
+# 0x7B9232E7A35F405e7bC4515e9516cD952014CBf1 nocreative
+# 0x822F1418072e15e1d1f07533138b35A72a8a0f55 efdot
+# 0x58479aC4874A2047A67B33dB778A5DaBBdfa8aF7 avery famous
+# 0x32CF8a3A307b3D663bC568bD0eB4713BfF5dD3e7 loudsqueak
+# 0x4CaB7970fC78A7eea741e04A7933f05366Ed3e09 miles high club
+# 0x18307440B66C15ddea2A1455a9009a64E0891998 main object
+# 0xF544BF28CA2a998619BC37e2d62828a55C444D5B perry cooper
+
+
+
+# this is the list of contracts
+# that the API uses to create a
+# collection set ID and the ID
+# is entered into the environment
+# variables (env.production) to request all of the
+# collections from the API in order
+# to display them on the front-end
+
+# to run this script, type 'bash contracts'

@@ -9,6 +9,7 @@ import Footer from 'components/Footer'
 import { useMediaQuery } from '@react-hookz/web'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 // Environment variables
 // For more information about these variables
@@ -37,7 +38,7 @@ const metadata = {
     <meta name="description" content={description} />
   ),
   tagline: (tagline: string | undefined) => (
-    <>{tagline || 'Discover, buy and sell NFTs'}</>
+    <>{tagline || 'store.knny.io'}</>
   ),
   image: (image?: string) => {
     if (image) {
@@ -83,13 +84,16 @@ const Home: NextPage<Props> = ({ fallback }) => {
         {description}
         {image}
       </Head>
-      <header className="col-span-full mb-12 mt-[66px] px-4 md:mt-40 lg:px-0">
-        <h1 className="reservoir-h1 text-center dark:text-white">{tagline}</h1>
+      <header className="col-span-full m-8">
+        <h1 className="reservoir-h2 green glow">{tagline}</h1>
+        <p className="grey">A curated set of artists in KNNY&apos;s social circle minting works on their own smart contracts, and listed on a 0-fee, open-source marketplace.</p>
+        <br></br>
+        <div className="flex"><p className="green">&#62; </p><Link href="https://github.com/0xKNNY/KNNY-Market-v5"><p className="text green underline glow">store source code</p></Link></div>
       </header>
       <div className="col-span-full px-6 md:px-16">
         <div className="mb-9 flex w-full items-center justify-between">
-          <div className="reservoir-h4 dark:text-white">
-            Trending Collections
+          <div className="reservoir-h4 text">
+            Artists
           </div>
           {!isSmallDevice && <SortTrendingCollections />}
         </div>
