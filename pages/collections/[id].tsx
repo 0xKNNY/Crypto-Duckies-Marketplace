@@ -25,6 +25,7 @@ import Sweep from 'components/Sweep'
 import { useCollections, useAttributes } from '@reservoir0x/reservoir-kit-ui'
 import CollectionActivityTab from 'components/tables/CollectionActivityTab'
 import RefreshButton from 'components/RefreshButton'
+import MobileTokensFilter from 'components/filter/MobileTokensFilter'
 
 // Environment variables
 // For more information about these variables
@@ -84,13 +85,9 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
   const { collectionAttributes, ref: refCollectionAttributes } =
     useCollectionAttributes(router, id)
 
-  const attributes = useAttributes(id)
+  const attributes = fallback?.attributes?.attributes
 
   if (!CHAIN_ID) return null
-
-  if (tokens.error) {
-    return <div>There was an error</div>
-  }
 
   const tokenCount = stats?.data?.stats?.tokenCount ?? 0
 
@@ -154,7 +151,13 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
           </Tabs.List>
           <Tabs.Content value="items" asChild>
             <div ref={scrollRef} className="relative flex flex-row">
-              
+              <Sidebar
+                attributes={attributes}
+                refreshData={() => {
+                  tokens.setSize(1)
+                }}
+                scrollToTop={scrollToTop}
+              />
               <div className="mx-6 mt-4 w-full">
                 <div className="mb-4 hidden items-center justify-between md:flex">
                   <div className="flex items-center gap-6 font-semibold">
@@ -174,7 +177,7 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
                           <FormatNativeCrypto
                             amount={
                               stats?.data?.stats?.market?.floorAsk?.price
-                                ?.amount?.decimal
+                                ?.netAmount?.decimal
                             }
                           />{' '}
                           floor price
@@ -203,6 +206,13 @@ const Home: NextPage<Props> = ({ fallback, id }) => {
                   isLoading={isLoading}
                 />
               </div>
+              <MobileTokensFilter
+                attributes={attributes}
+                refreshData={() => {
+                  tokens.setSize(1)
+                }}
+                scrollToTop={scrollToTop}
+              />
             </div>
           </Tabs.Content>
           <Tabs.Content
@@ -283,6 +293,7 @@ export const getStaticProps: GetStaticProps<{
   fallback: {
     collection: paths['/collections/v5']['get']['responses']['200']['schema']
     tokens: paths['/tokens/v5']['get']['responses']['200']['schema']
+    attributes: paths['/collections/{collection}/attributes/all/v2']['get']['responses']['200']['schema']
   }
   id: string | undefined
 }> = async ({ params }) => {
@@ -328,8 +339,18 @@ export const getStaticProps: GetStaticProps<{
 
   const tokens = (await tokensRes.json()) as Props['fallback']['tokens']
 
+  // ATTRIBUTES
+  const attributesUrl = new URL(
+    `${RESERVOIR_API_BASE}/collections/${id}/attributes/all/v2`
+  )
+
+  const attributesRes = await fetch(attributesUrl.href, options)
+
+  const attributes =
+    (await attributesRes.json()) as Props['fallback']['attributes']
+
   return {
-    props: { fallback: { collection, tokens }, id },
+    props: { fallback: { collection, tokens, attributes }, id },
     revalidate: 20,
   }
 }
